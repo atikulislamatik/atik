@@ -10,7 +10,7 @@ import {
   services,
 } from "../../content_option";
 
- const About = () => {
+const About = () => {
   return (
     <HelmetProvider>
       <Container className="About-header">
@@ -35,7 +35,7 @@ import {
             </div>
           </Col>
         </Row>
-        <Row className=" sec_sp">
+        {/* <Row className=" sec_sp">
           <Col lg="5">
             <h3 className="color_sec py-4">Work Timline</h3>
           </Col>
@@ -54,7 +54,7 @@ import {
               </tbody>
             </table>
           </Col>
-        </Row>
+        </Row> */}
         <Row className="sec_sp">
           <Col lg="5">
             <h3 className="color_sec py-4">Skills</h3>
@@ -62,33 +62,31 @@ import {
           <Col lg="7">
             {skills.map((data, i) => {
               return (
-                <div key={i}>
+                <>
                   <h3 className="progress-title">{data.name}</h3>
-                  <div className="progress">
-                    <div
-                      className="progress-bar"
-                      style={{
-                        width: `${data.value}%`,
-                      }}
-                    >
-                      <div className="progress-value">{data.value}%</div>
-                    </div>
-                  </div>
-                </div>
+                  <img src={data.url} alt="fa" />
+                </>
               );
             })}
           </Col>
         </Row>
         <Row className="sec_sp">
           <Col lang="5">
-            <h3 className="color_sec py-4">services</h3>
+            <h3 className="color_sec py-4">Work Timline</h3>
           </Col>
           <Col lg="7">
             {services.map((data, i) => {
               return (
                 <div className="service_ py-4" key={i}>
                   <h5 className="service__title">{data.title}</h5>
-                  <p className="service_desc">{data.description}</p>
+                  <p className="service_desc">{data.description.d1}</p>
+                  {/* {
+                    data.description.map((des, i) => {
+                      return (
+                        <p className="service_desc">{des}</p>
+                      )
+                    })
+                  } */}
                 </div>
               );
             })}
