@@ -1,4 +1,4 @@
-import p1 from "./assets/images/pro.jpeg"
+import p1 from "./assets/images/pro.jpg"
 
 
 import p2 from "./assets/images/icon/1.png"
