@@ -18,7 +18,6 @@ const ContactUs = () => {
   const initialValues = {
     name: "",
     email: "",
-    subject: "",
     message: "",
   };
 
@@ -158,7 +157,7 @@ const ContactUs = () => {
 
                 <Row>
                   <ReCAPTCHA
-                    sitekey='6Le5xxAjAAAAAPDZM9LRadZ1SbcvyEowtNJzvpYQ'
+                    sitekey='6Lce2BAjAAAAAGQcUI6OrDTbofKzYVzkVcYK-6My'
                     onChange={onChange}
                   />
                 </Row>
@@ -166,7 +165,7 @@ const ContactUs = () => {
 
                   <button
                     type="submit"
-                    className="btn ac_btn"
+                    className="btn ac_btn mt-4" 
                     disabled={!verfied}
                   >
                     Send Message
