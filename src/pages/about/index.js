@@ -63,8 +63,7 @@ const About = () => {
             {skills.map((data, i) => {
               return (
                 <>
-                  <h3 className="progress-title">{data.name}</h3>
-                  <img src={data.url} alt="fa" />
+                  <img className="skill-img" src={data.url} alt="skill" />
                 </>
               );
             })}

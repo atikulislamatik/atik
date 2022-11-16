@@ -1,3 +1,23 @@
+import p2 from "./assets/images/icon/1.png"
+import p3 from "./assets/images/icon/2.png"
+import p4 from "./assets/images/icon/3.png"
+import p5 from "./assets/images/icon/4.png"
+import p6 from "./assets/images/icon/5.png"
+import p7 from "./assets/images/icon/6.png"
+import p8 from "./assets/images/icon/7.png"
+import p1 from "./assets/images/pro.JPG"
+
+
+import a1 from "./assets/images/protfolio/1.png"
+import a2 from "./assets/images/protfolio/2.png"
+import a3 from "./assets/images/protfolio/3.png"
+import a4 from "./assets/images/protfolio/4.png"
+import a5 from "./assets/images/protfolio/5.png"
+import a6 from "./assets/images/protfolio/6.png"
+import a7 from "./assets/images/protfolio/7.png"
+import a8 from "./assets/images/protfolio/8.png"
+import a9 from "./assets/images/protfolio/9.png"
+
 const logotext = "at!k";
 const meta = {
     title: "Atikul Islam Romon",
@@ -12,7 +32,7 @@ const introdata = {
         third: "I develop responsive web app.",
     },
     description: "I’m Atikul Islam Romon  _ Front end devloper, currently working in Digitizefit , New York USA.",
-    your_img_url: "https://scontent.fdac116-1.fna.fbcdn.net/v/t1.6435-9/194179982_1955405897948414_1658171705432213344_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeFZxq2UuEdpuxvd1k0Wqq8t3A1Qe6WND27cDVB7pY0PblhrEODu7hilMxb-Culybii_3OOfyl_78MkJgcDMBE-q&_nc_ohc=67vvNbn6Xn4AX-70i4g&_nc_ht=scontent.fdac116-1.fna&oh=00_AfCuL7vqBS6asUvyoiE34wos_04brjGCCzl7bDLyS1nk-Q&oe=639ADC41",
+    your_img_url: p1,
 };
 
 const dataabout = {
@@ -37,20 +57,38 @@ const worktimeline = [{
 ];
 
 const skills = [{
-    name: "Python",
-    url: "../public/logo.svg"
+    name: "HTML",
+    url: p2
 },
 {
-    name: "Djano",
+    name: "CSS",
+    url: p3
+
 },
 {
     name: "Javascript",
+    url: p4
+
 },
 {
     name: "React",
+    url: p5
+
 },
 {
     name: "Jquery",
+    url: p6
+
+},
+{
+    name: "Jquery",
+    url: p7
+
+},
+{
+    name: "Jquery",
+    url: p8
+
 },
 ];
 
@@ -73,65 +111,50 @@ const services = [{
 ];
 
 const dataportfolio = [{
-    img: "https://picsum.photos/400/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
+    img: a1,
+    desctiption: "Surma",
+    link: "https://surma.vercel.app/",
 },
 {
-    img: "https://picsum.photos/400/800/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
+    img: a2,
+    desctiption: "C3NTRAL",
+    link: "https://c3nft.vercel.app/",
 },
 {
-    img: "https://picsum.photos/400/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
+    img: a3,
+    desctiption: "Enft",
+    link: "https://anft.vercel.app/",
 },
 {
-    img: "https://picsum.photos/400/600/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
+    img: a4,
+    desctiption: "Paso",
+    link: "https://templates.hibootstrap.com/paso/default/index.html",
 },
 {
-    img: "https://picsum.photos/400/300/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
+    img: a5,
+    desctiption: "Edvi",
+    link: "https://templates.hibootstrap.com/edvi/default/index.html",
 },
 {
-    img: "https://picsum.photos/400/700/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
+    img: a6,
+    desctiption: "Abook",
+    link: "https://aabook.vercel.app/#",
+},
+{
+    img: a7,
+    desctiption: "Ordere",
+    link: "https://ordere.co.uk/",
 },
 
 {
-    img: "https://picsum.photos/400/600/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
+    img: a8,
+    desctiption: "art",
+    link: "https://atikulislamatik.github.io/art/",
 },
 {
-    img: "https://picsum.photos/400/300/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-{
-    img: "https://picsum.photos/400/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-{
-    img: "https://picsum.photos/400/550/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-{
-    img: "https://picsum.photos/400/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-{
-    img: "https://picsum.photos/400/700/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
+    img: a9,
+    desctiption: "Estate",
+    link: "https://atikulislamatik.github.io/Estate/",
 },
 ];
 
@@ -160,4 +183,5 @@ export {
     contactConfig,
     socialprofils,
     logotext,
-};
+}
+
