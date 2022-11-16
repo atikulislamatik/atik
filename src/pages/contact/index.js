@@ -34,7 +34,7 @@ const ContactUs = () => {
 
         action.resetForm();
 
-        emailjs.sendForm('service_tx8z6nj', 'template_t1r1pye', form.current, 'db0WAIuh_rwOfzlyI')
+        emailjs.sendForm('service_tx8z6nj', 'template_t1r1pye', form.current, 'SVktvcRATofOO0Uwq')
           .then((result) => {
            
           }, (error) => {
