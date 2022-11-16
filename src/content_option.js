@@ -1,3 +1,6 @@
+import p1 from "./assets/images/pro.jpeg"
+
+
 import p2 from "./assets/images/icon/1.png"
 import p3 from "./assets/images/icon/2.png"
 import p4 from "./assets/images/icon/3.png"
@@ -5,7 +8,6 @@ import p5 from "./assets/images/icon/4.png"
 import p6 from "./assets/images/icon/5.png"
 import p7 from "./assets/images/icon/6.png"
 import p8 from "./assets/images/icon/7.png"
-import p1 from "./assets/images/pro.JPG"
 
 
 import a1 from "./assets/images/protfolio/1.png"
