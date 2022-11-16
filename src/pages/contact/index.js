@@ -36,7 +36,7 @@ const ContactUs = () => {
 
         emailjs.sendForm('service_tx8z6nj', 'template_t1r1pye', form.current, 'SVktvcRATofOO0Uwq')
           .then((result) => {
-           
+
           }, (error) => {
             console.log(error.text);
           });
@@ -92,7 +92,7 @@ const ContactUs = () => {
             </address>
             <p>{contactConfig.description}</p>
           </Col>
-          <Col lg="7" className="d-flex align-items-center">
+          <Col lg="7" className="align-items-center">
 
             {
               notification ? <div class="alert alert-success mt-3" role="alert">
