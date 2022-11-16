@@ -23,7 +23,7 @@ import a9 from "./assets/images/protfolio/9.png"
 const logotext = "at!k";
 const meta = {
     title: "Atikul Islam Romon",
-    description: "I’m John Doe data scientist _ Full stack devloper,currently working in Berlin",
+    description: "I’m Atikul Islam Romon _ Front end devloper , currently working in Digitizefit , New York USA.",
 };
 
 const introdata = {
@@ -164,9 +164,6 @@ const contactConfig = {
     YOUR_EMAIL: "islam.atik15@gmail.com",
     YOUR_FONE: "+880 1729 105192",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin. Cras pulvinar, nisi at imperdiet pharetra. ",
-    YOUR_SERVICE_ID: "service_id",
-    YOUR_TEMPLATE_ID: "template_id",
-    YOUR_USER_ID: "user_id",
 };
 
 const socialprofils = {

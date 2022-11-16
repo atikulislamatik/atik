@@ -1,68 +1,57 @@
-import React, { useState } from "react";
-import * as emailjs from "emailjs-com";
-import "./style.css";
+import React, { useRef, useState } from 'react';
+import { Col, Container, Row } from "react-bootstrap";
+import ReCAPTCHA from "react-google-recaptcha";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { meta } from "../../content_option";
-import { Container, Row, Col, Alert } from "react-bootstrap";
-import { contactConfig } from "../../content_option";
+import { contactConfig, meta } from "../../content_option";
+import "./style.css";
 
- const ContactUs = () => {
-  const [formData, setFormdata] = useState({
-    email: "",
+import emailjs from '@emailjs/browser';
+import { useFormik } from "formik";
+
+import { contactSchema } from "./Schemas";
+
+const ContactUs = () => {
+
+
+  const form = useRef();
+
+  const initialValues = {
     name: "",
+    email: "",
+    subject: "",
     message: "",
-    loading: false,
-    show: false,
-    alertmessage: "",
-    variant: "",
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormdata({ loading: true });
-
-    const templateParams = {
-      from_name: formData.email,
-      user_name: formData.name,
-      to_name: contactConfig.YOUR_EMAIL,
-      message: formData.message,
-    };
-
-    emailjs
-      .send(
-        contactConfig.YOUR_SERVICE_ID,
-        contactConfig.YOUR_TEMPLATE_ID,
-        templateParams,
-        contactConfig.YOUR_USER_ID
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setFormdata({
-            loading: false,
-            alertmessage: "SUCCESS! ,Thankyou for your messege",
-            variant: "success",
-            show: true,
-          });
-        },
-        (error) => {
-          console.log(error.text);
-          setFormdata({
-            alertmessage: `Faild to send!,${error.text}`,
-            variant: "danger",
-            show: true,
-          });
-          document.getElementsByClassName("co_alert")[0].scrollIntoView();
-        }
-      );
   };
 
-  const handleChange = (e) => {
-    setFormdata({
-      ...formData,
-      [e.target.name]: e.target.value,
+  const [notification, setNotification] = useState(false)
+
+  const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
+    useFormik({
+      initialValues,
+      validationSchema: contactSchema,
+      validateOnChange: true,
+      validateOnBlur: true,
+      onSubmit: (values, action) => {
+        setNotification(true)
+
+        action.resetForm();
+
+        emailjs.sendForm('service_oeurzy7', 'template_t1r1pye', form.current, 'db0WAIuh_rwOfzlyI')
+          .then((result) => {
+            console.log(result.text);
+          }, (error) => {
+            console.log(error.text);
+          });
+      },
     });
-  };
+
+
+  const [verfied, setVerifed] = useState(false);
+
+  //recaptcha function
+  function onChange(value) {
+    console.log("Captcha value:", value);
+    setVerifed(true);
+  }
 
   return (
     <HelmetProvider>
@@ -71,6 +60,9 @@ import { contactConfig } from "../../content_option";
           <meta charSet="utf-8" />
           <title>{meta.title} | Contact</title>
           <meta name="description" content={meta.description} />
+
+          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
         </Helmet>
         <Row className="mb-5 mt-3">
           <Col lg="8">
@@ -80,22 +72,12 @@ import { contactConfig } from "../../content_option";
         </Row>
         <Row className="sec_sp">
           <Col lg="12">
-            <Alert
-              //show={formData.show}
-              variant={formData.variant}
-              className={`rounded-0 co_alert ${
-                formData.show ? "d-block" : "d-none"
-              }`}
-              onClose={() => setFormdata({ show: false })}
-              dismissible
-            >
-              <p className="my-0">{formData.alertmessage}</p>
-            </Alert>
+            <h3>{notification}</h3>
           </Col>
           <Col lg="5" className="mb-5">
             <h3 className="color_sec py-4">Get in touch</h3>
             <address>
-              <strong>Email:</strong>{" "}
+              <strong>Email : </strong>{" "}
               <a href={`mailto:${contactConfig.YOUR_EMAIL}`}>
                 {contactConfig.YOUR_EMAIL}
               </a>
@@ -103,7 +85,7 @@ import { contactConfig } from "../../content_option";
               <br />
               {contactConfig.hasOwnProperty("YOUR_FONE") ? (
                 <p>
-                  <strong>Phone:</strong> {contactConfig.YOUR_FONE}
+                  <strong>Phone : </strong> {contactConfig.YOUR_FONE}
                 </p>
               ) : (
                 ""
@@ -112,48 +94,82 @@ import { contactConfig } from "../../content_option";
             <p>{contactConfig.description}</p>
           </Col>
           <Col lg="7" className="d-flex align-items-center">
-            <form onSubmit={handleSubmit} className="contact__form w-100">
+            <form ref={form} onSubmit={handleSubmit} className="contact__form w-100">
               <Row>
                 <Col lg="6" className="form-group">
+                  {touched.name && errors.name ? (
+                    <p className="form-error">{errors.name}</p>
+                  ) : null}
+
                   <input
-                    className="form-control"
-                    id="name"
+                    type="name"
+                    autoComplete="off"
                     name="name"
-                    placeholder="Name"
-                    value={formData.name || ""}
-                    type="text"
-                    required
+                    id="name"
+                    className="form-control rounded-0"
+                    placeholder="eg. Jhon Smit"
+                    value={values.name}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                   />
+
                 </Col>
                 <Col lg="6" className="form-group">
+                  {errors.email && touched.email ? (
+                    <p className="form-error">{errors.email}</p>
+                  ) : null}
                   <input
-                    className="form-control rounded-0"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
                     type="email"
-                    value={formData.email || ""}
-                    required
+                    autoComplete="off"
+                    name="email"
+                    id="email"
+                    className="form-control rounded-0"
+                    placeholder="eg. email@example.com"
+                    value={values.email}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                   />
+
                 </Col>
+
+                <Col lg="12" className="form-group">
+                  {errors.message && touched.message ? (
+                    <p className="form-error">{errors.message}</p>
+                  ) : null}
+                  <textarea
+                    type="text"
+                    autoComplete="off"
+                    name="message"
+                    id="message"
+                    className="form-control rounded-0"
+                    placeholder="What can we help with?"
+                    value={values.message}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+
+                </Col>
+
               </Row>
-              <textarea
-                className="form-control rounded-0"
-                id="message"
-                name="message"
-                placeholder="Message"
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
+
+
               <br />
               <Row>
+
+                <Row>
+                  <ReCAPTCHA
+                    sitekey='6Le5xxAjAAAAAPDZM9LRadZ1SbcvyEowtNJzvpYQ'
+                    onChange={onChange}
+                  />
+                </Row>
                 <Col lg="12" className="form-group">
-                  <button className="btn ac_btn" type="submit">
-                    {formData.loading ? "Sending..." : "Send"}
+
+                  <button
+                    type="submit"
+                    className="btn ac_btn"
+                    disabled={!verfied}
+                  >
+                    Send Message
                   </button>
                 </Col>
               </Row>
@@ -161,7 +177,11 @@ import { contactConfig } from "../../content_option";
           </Col>
         </Row>
       </Container>
-      <div className={formData.loading ? "loading-bar" : "d-none"}></div>
+      {
+        notification ? <div class="alert alert-success mt-3" role="alert">
+          Thank you for your message. It has been sent.
+        </div> : ""
+      }
     </HelmetProvider>
   );
 };
