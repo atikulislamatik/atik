@@ -34,7 +34,7 @@ const ContactUs = () => {
 
         action.resetForm();
 
-        emailjs.sendForm('service_oeurzy7', 'template_t1r1pye', form.current, 'db0WAIuh_rwOfzlyI')
+        emailjs.sendForm('service_tx8z6nj', 'template_t1r1pye', form.current, 'db0WAIuh_rwOfzlyI')
           .then((result) => {
             console.log(result.text);
           }, (error) => {
@@ -93,12 +93,17 @@ const ContactUs = () => {
             <p>{contactConfig.description}</p>
           </Col>
           <Col lg="7" className="d-flex align-items-center">
+
+            {
+              notification ? <div class="alert alert-success mt-3" role="alert">
+                Thank you for your message. It has been sent.
+              </div> : ""
+            }
+
             <form ref={form} onSubmit={handleSubmit} className="contact__form w-100">
               <Row>
                 <Col lg="6" className="form-group">
-                  {touched.name && errors.name ? (
-                    <p className="form-error">{errors.name}</p>
-                  ) : null}
+
 
                   <input
                     type="name"
@@ -111,12 +116,12 @@ const ContactUs = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-
+                  {touched.name && errors.name ? (
+                    <p className="form-error">{errors.name}</p>
+                  ) : null}
                 </Col>
                 <Col lg="6" className="form-group">
-                  {errors.email && touched.email ? (
-                    <p className="form-error">{errors.email}</p>
-                  ) : null}
+
                   <input
                     type="email"
                     autoComplete="off"
@@ -128,13 +133,13 @@ const ContactUs = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
-
+                  {errors.email && touched.email ? (
+                    <p className="form-error">{errors.email}</p>
+                  ) : null}
                 </Col>
 
                 <Col lg="12" className="form-group">
-                  {errors.message && touched.message ? (
-                    <p className="form-error">{errors.message}</p>
-                  ) : null}
+
                   <textarea
                     type="text"
                     autoComplete="off"
@@ -146,6 +151,9 @@ const ContactUs = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
+                  {errors.message && touched.message ? (
+                    <p className="form-error">{errors.message}</p>
+                  ) : null}
 
                 </Col>
 
@@ -165,7 +173,7 @@ const ContactUs = () => {
 
                   <button
                     type="submit"
-                    className="btn ac_btn mt-4" 
+                    className="btn ac_btn mt-4"
                     disabled={!verfied}
                   >
                     Send Message
@@ -176,11 +184,7 @@ const ContactUs = () => {
           </Col>
         </Row>
       </Container>
-      {
-        notification ? <div class="alert alert-success mt-3" role="alert">
-          Thank you for your message. It has been sent.
-        </div> : ""
-      }
+
     </HelmetProvider>
   );
 };
