@@ -233,5 +233,5 @@ section {
 
 .intro_sec .h_bg-image {
   /* filter: saturate(0.2); */
-  filter: grayscale(0.8);
+  filter: grayscale(1);
 }
