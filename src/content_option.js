@@ -59,36 +59,30 @@ const worktimeline = [{
 ];
 
 const skills = [{
-    name: "HTML",
     url: p2
 },
 {
-    name: "CSS",
     url: p3
 
 },
 {
-    name: "Javascript",
     url: p4
 
 },
 {
-    name: "React",
+
     url: p5
 
 },
 {
-    name: "Jquery",
     url: p6
 
 },
 {
-    name: "Jquery",
     url: p7
 
 },
 {
-    name: "Jquery",
     url: p8
 
 },
