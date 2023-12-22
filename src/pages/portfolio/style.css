@@ -12,13 +12,15 @@
   width: 100%;
   text-align: center;
   margin: 0.5rem auto;
-  position: relative;
+/*   position: relative; */
   background: var(--secondary-color);
   padding: 2px;
-  border: 1px solid var(--secondary-color);
+  border: 1px solid #f2f2f2;
   transition: 0.3s ease;
   font-size: 0;
   min-height: 250px;
+  padding: 15px;
+  border-radius: 5px;
 }
 
 .po_item img {
@@ -34,7 +36,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--overlay-color);
+  background: #222;
   z-index: 1;
   display: flex;
   justify-content: center;
@@ -46,7 +48,9 @@
   opacity: 0;
   border: 1px solid black;
 }
-
+.po_item .content p{
+  color:#fff;
+}
 .po_item .content {
   opacity: 0;
   transition-delay: 1s;
