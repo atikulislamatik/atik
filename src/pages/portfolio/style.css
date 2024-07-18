@@ -12,7 +12,7 @@
   width: 100%;
   text-align: center;
   margin: 0.5rem auto;
-/*   position: relative; */
+   position: relative;
   background: var(--secondary-color);
   padding: 2px;
   border: 1px solid #f2f2f2;
